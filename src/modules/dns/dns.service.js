@@ -2,7 +2,7 @@ require('dotenv').config();
 const dgram = require("dgram");
 const { buildDNSQuery, parseDNSResponse } = require("./dns.util");
 
-const ROOT_DNS_SERVER = process.env.ROOT_DNS_SERVER
+const ROOT_DNS_SERVER = process.env.ROOT_DNS_SERVER // Public DNS for testing
 const DNS_PORT = process.env.DNS_PORT || 53;
 
 async function customDNSQuery(domain) {

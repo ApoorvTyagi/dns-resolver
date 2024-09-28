@@ -1,7 +1,8 @@
 // Function to create a basic DNS query message for an 'A' record
 const buildDNSQuery = (domain) => {
-  const queryID = Buffer.from([0x00, 0x01]);
-  const flags = Buffer.from([0x01, 0x00]);
+  // 16 bit
+  const queryID = Buffer.from([0x00, 0x01]); // Id; default set to 1; represented by the two-byte array
+  const flags = Buffer.from([0x01, 0x00]); // Standard query; 0x01 in the first byte means recursion desired. 0x00 in the second byte indicates no other options are set.
   const questionCount = Buffer.from([0x00, 0x01]); // 1 question
   const answerCount = Buffer.from([0x00, 0x00]); // 0 answers
   const authorityCount = Buffer.from([0x00, 0x00]); // 0 authority records
